@@ -17,25 +17,41 @@
 
 <body>
 
-    <main class="bg-light">
-        <div class="container">
-            @forelse ($trains as $train)
-            <ul>
-                <li>Azienda: {{$train['azienda']}}</li>
-                <li>In partenza da: {{$train['stazione_di_partenza']}}</li>
-                <li>In arrivo da: {{$train['stazione_di_arrivo']}}</li>
-                <li>In partenza alle ore: {{$train['orario_di_partenza']}}</li>
-                <li>In arrivo alle ore: {{$train['orario_di_arrivo']}}</li>
-                <li>Codice treno n°: {{$train['codice_treno']}}</li>
-                <li>Numero di carrozze: {{$train['numero_carrozze']}}</li>
-            </ul>
-                
-            @empty
-            <p>No trains</p>
-                
-            @endforelse
-           
+    <main class="bg-light p-5">
+        <div class="container">                
 
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Azienda</th>
+                        <th scope="col">In partenza da</th>
+                        <th scope="col">In arrivo da</th>
+                        <th scope="col">In partenza alle ore</th>
+                        <th scope="col">In arrivo alle ore</th>
+                        <th scope="col">Codice treno n°</th>
+                        <th scope="col">Numero di carrozze</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                @forelse ($trains as $train)
+                  <tr>
+                    <td scope="row">{{$train['azienda']}}</td>
+                    <td>{{$train['stazione_di_partenza']}}</td>
+                    <td>{{$train['stazione_di_arrivo']}}</td>
+                    <td>{{$train['orario_di_partenza']}}</td>
+
+                    <td>{{$train['orario_di_arrivo']}}</td>
+                    <td>{{$train['codice_treno']}}</td>
+                    <td>{{$train['numero_carrozze']}}</td>
+                  </tr>
+
+                  @empty
+                  <p>No trains</p>
+                </tbody>
+            </table>
+            @endforelse   
 
         </div>
     </main>
