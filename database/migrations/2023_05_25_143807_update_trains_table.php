@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->id();
             $table->string('azienda', 60);
             $table->string('stazione_di_partenza', 100);
             $table->string('stazione_di_arrivo', 100);
@@ -24,7 +23,6 @@ return new class extends Migration
             $table->tinyInteger('numero_carrozze');
             $table->boolean('in_orario')->default(true);
             $table->boolean('cancellato')->default(false);
-            $table->timestamps();
         });
     }
 
